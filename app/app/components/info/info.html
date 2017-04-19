@@ -1,0 +1,70 @@
+<md-dialog aria-label="Todo Info">
+    <md-toolbar class="md-accent">
+      <div class="md-toolbar-tools">
+        <h2>Todo Details</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="info.close()">
+          <md-icon class="material-icons">close</md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+
+    <md-dialog-content>
+      <div layout-padding>
+        {{ info.item.title }}
+      </div>
+      
+      <md-list sv-root sv-part="info.item.details" sv-on-sort="info.updateList()">
+        <md-list-item ng-repeat="detail in info.item.details track by $index" ng-class="{'completed':detail.completed}" class="todo" sv-element>
+          <md-button class="md-icon-button" sv-handle>
+            <md-icon class="material-icons">drag_handle</md-icon>
+          </md-button>
+          <md-button class="md-icon-button" ng-click="info.editExisting(detail)">
+            <md-icon class="material-icons">edit</md-icon>
+          </md-button>
+          <md-checkbox ng-model="detail.completed" ng-change="info.completionChange(detail)"></md-checkbox>
+
+          <p>{{ detail.title }}</p>
+
+          <div class="md-secondary">
+            <md-button class="md-icon-button" ng-click="info.delete($index)">
+              <md-icon class="material-icons">close</md-icon>
+            </md-button>
+          </div>
+        </md-list-item>
+      </md-list>
+
+      <md-list class="util_list">
+        <md-list-item class="todo" ng-click="info.addNew()" ng-if="!info.editing">
+          <md-icon class="material-icons">add</md-icon>
+          Add New
+        </md-list-item>
+
+        <md-list-item class="todo new_todo" ng-show="info.editing">
+          <div flex="80">
+            <md-input-container class="md-block">
+              <label>Title</label>
+              <input ng-model="info.current.title" ng-keyup="info.saveOnEnter($event)" id="item_input">
+            </md-input-container>   
+          </div>
+          <div flex="10">
+            <md-button class="md-primary" ng-click="info.save()">Save</md-button>
+          </div>
+          <div flex="10" style="text-align:right;">
+            <md-button class="md-icon-button" ng-click="info.cancelNew()">
+              <md-icon class="material-icons">close</md-icon>
+            </md-button>
+          </div>
+        </md-list-item>
+
+      </md-list>
+
+    </md-dialog-content>
+
+    <md-dialog-actions layout="row">
+      <span flex></span>
+      <md-button ng-click="info.close()">
+       Close
+      </md-button>
+    </md-dialog-actions>
+</md-dialog>

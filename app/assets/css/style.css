@@ -1,0 +1,81 @@
+body {
+  overflow:hidden;
+  font-family:'Roboto', Arial, sans-serif;
+  background:#ccc;
+}
+#app {
+  position:absolute;
+  top:48px;
+  right:1px;
+  left:1px;
+  bottom:1px;
+}
+#app > md-content {
+  background:#f5f5f5;
+  height:100%;
+}
+md-toolbar:not(.md-menu-toolbar) {
+  -webkit-app-region:drag;
+  overflow:visible;
+  box-shadow:0 1px 2px 1px rgba(0,0,0,0.3);
+}
+md-toolbar:not(.md-menu-toolbar) .md-button {
+  -webkit-app-region:no-drag;
+}
+.md-toolbar-tools h2 {
+  font-weight:400;
+}
+.md-toolbar-tools {
+  padding-right:0;
+}
+md-toolbar .md-fab {
+  position:absolute;
+  top:25px;
+  right:55px;
+}
+.logo {
+  height:30px;
+  margin-right:8px;
+  opacity:0.87;
+}
+md-list {
+  padding-top:0;
+  padding-bottom:0;
+}
+/* Todo Styling */
+.todo {
+  text-align:left;
+  border-bottom:1px solid #eee;
+  background:#fafafa;
+  position:relative;
+}
+md-list-item.todo .md-no-style {
+  padding:0;
+}
+md-list-item.todo .md-list-item-inner>md-checkbox {
+  margin-right:16px;
+}
+.todo.completed p {
+  text-decoration:line-through;
+  color:#aaa;
+}
+.todo.completed {
+  opacity:0.8;
+}
+.todo .md-list-item-inner md-icon {
+  margin-right:0;
+  margin-left:0;
+}
+.util_list .todo {
+  box-shadow:0 1px 2px 1px rgba(0,0,0,0.3);
+}
+md-list-item.new_todo {
+  padding-right:0;
+}
+form {
+  display:-webkit-inline-box;
+}
+/* Info Dialog */
+md-dialog .md-toolbar-tools {
+  padding-right:16px;
+}

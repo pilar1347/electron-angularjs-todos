@@ -1,0 +1,26 @@
+{
+  "name": "todo.shell",
+  "version": "1.0.0",
+  "description": "Electron Todo App",
+  "main": "app/main.js",
+  "productName": "todo.shell",
+  "author": "Dawn Starlin",
+  "scripts": {
+    "start": "electron .",
+    "pack": "build --dir",
+    "dist": "build --win --x64"
+  },
+  "build": {
+    "appId": "fsi.todo.app",
+    "win":{
+      "iconUrl":"http://webspace.dev.flightsafety.com/courseware/CWS/CwsProjects/icons/icon.ico"
+    }
+  },
+  "keywords": [
+  ],
+  "license": "CC0-1.0",
+  "devDependencies": {
+    "electron-builder": "^5.35.0",
+    "electron": "^1.4.15"
+  }
+}

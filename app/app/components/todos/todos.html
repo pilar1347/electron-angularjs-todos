@@ -1,0 +1,53 @@
+<div layout="row" layout-padding layout-align="center center" ng-if="todos.listCheck">
+	<h4 style="font-weight:400">Nothing to see here, folks.</h4>
+</div>
+
+<md-list sv-root sv-part="todos.data.items" sv-on-sort="todos.updateList()">
+	<md-list-item ng-repeat="item in todos.data.items track by $index" class="todo" ng-class="{'completed':item.completed}" sv-element ng-if="todos.configureList(item)" ng-style="item.style">
+
+		<md-button class="md-icon-button" sv-handle>
+			<md-icon class="material-icons">drag_handle</md-icon>
+		</md-button>
+		<md-button class="md-icon-button" ng-click="todos.editExisting(item)">
+			<md-icon class="material-icons">edit</md-icon>
+		</md-button>
+		<md-button class="md-icon-button" ng-click="todos.viewInfo(item, $event)">
+			<md-icon class="material-icons">info_outline</md-icon>
+		</md-button>
+		<md-checkbox ng-model="item.completed" ng-change="todos.completionChange(item)"></md-checkbox>
+
+		<p>{{ item.title }}</p>
+
+		<div class="md-secondary">
+			<md-button class="md-icon-button" ng-click="todos.delete($index)">
+				<md-icon class="material-icons">close</md-icon>
+			</md-button>
+		</div>
+		
+	</md-list-item>
+</md-list>
+
+<md-list class="util_list" ng-if="!todos.params.state">
+	<md-list-item class="todo" ng-click="todos.addNew()" ng-if="!todos.editing">
+		<md-icon class="material-icons">add</md-icon>
+		Add New
+	</md-list-item>
+
+	<md-list-item class="todo new_todo" ng-show="todos.editing">
+		<div flex="80">
+			<md-input-container class="md-block">
+				<label>Title</label>
+				<input ng-model="todos.current.title" ng-keyup="todos.saveOnEnter($event)" id="todo_input">
+			</md-input-container>		
+		</div>
+		<div flex="10">
+			<md-button class="md-primary" ng-click="todos.save()">Save</md-button>
+		</div>
+		<div flex="10" style="text-align:right;">
+			<md-button class="md-icon-button" ng-click="todos.cancelNew()">
+				<md-icon class="material-icons">close</md-icon>
+			</md-button>
+		</div>
+	</md-list-item>
+
+</md-list>

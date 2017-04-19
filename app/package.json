@@ -1,0 +1,28 @@
+{
+  "name": "todo.app",
+  "productName": "Todos",
+  "version": "1.0.0",
+  "description": "Todo App",
+  "main": "main.js",
+  "keywords": [],
+  "author": "Dawn Starlin",
+  "dependencies": {
+    "angular": "1.5.8",
+    "angular-animate": "1.5.8",
+    "angular-aria": "1.5.8",
+    "angular-material": "^1.1.0",
+    "angular-route": "1.5.8",
+    "angular-sortable-view": "0.0.15",
+    "app-root-dir": "^1.0.2",
+    "bluebird": "^3.5.0",
+    "electron-is-dev": "^0.1.2",
+    "electron-json-storage": "^3.0.4",
+    "electron-log": "1.0.19",
+    "electron-reload": "^1.1.0",
+    "express": "^4.14.0",
+    "file-exists": "^2.0.0",
+    "fs-extra": "^0.30.0",
+    "method-override": "^2.3.6",
+    "path": "^0.12.7"
+  }
+}
