@@ -1,7 +1,7 @@
 {
   "name": "todo.shell",
   "version": "1.0.0",
-  "description": "Electron Todo App",
+  "description": "A todo application created using an Electron shell and AngularJS.",
   "main": "app/main.js",
   "productName": "todo.shell",
   "author": "Pilar1347",
