@@ -4,16 +4,16 @@
   "description": "Electron Todo App",
   "main": "app/main.js",
   "productName": "todo.shell",
-  "author": "Dawn Starlin",
+  "author": "Pilar1347",
   "scripts": {
     "start": "electron .",
     "pack": "build --dir",
     "dist": "build --win --x64"
   },
   "build": {
-    "appId": "fsi.todo.app",
+    "appId": "my.todo.app",
     "win":{
-      "iconUrl":"http://webspace.dev.flightsafety.com/courseware/CWS/CwsProjects/icons/icon.ico"
+      "iconUrl":"https://raw.githubusercontent.com/pilar1347/electron-angularjs-todos/master/build/icon.ico"
     }
   },
   "keywords": [

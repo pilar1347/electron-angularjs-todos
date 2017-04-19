@@ -5,7 +5,7 @@
   "description": "Todo App",
   "main": "main.js",
   "keywords": [],
-  "author": "Dawn Starlin",
+  "author": "Pilar1347",
   "dependencies": {
     "angular": "1.5.8",
     "angular-animate": "1.5.8",
