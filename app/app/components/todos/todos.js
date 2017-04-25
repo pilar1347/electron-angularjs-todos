@@ -4,7 +4,7 @@
 	angular.module('app').controller('TodosController', TodosController);
 
 	/* @ngInject */
-	function TodosController($scope, $timeout, $routeParams, $mdDialog, TodoData){
+	function TodosController($scope, $timeout, $routeParams, $mdDialog, $mdTheming, TodoData){
 		var vm = this;
 
 		vm.addNew = addNew;
@@ -20,16 +20,12 @@
 
 		activate();
 
-		//have way to view old, completed todos, and mark as not done
+		//TODOs for todos
 		//Attach folder locations to todos?
-		//Add way to edit already created todos
 		//Add due date to Todos
 
 		//If list is long, is it annoying to have add new at bottom?
 		//Should list be tall and skinny instead of size it is now?
-
-		//way to change color theme from menu
-
 
 		function activate(){
 			TodoData.get().then(function(res){
@@ -73,7 +69,7 @@
 					}
 
 					item.style = {
-						background:'linear-gradient(to right, #ddd 0%, #ddd '+(p_complete-2)+'%, #f5f5f5 '+p_complete+'%, #f5f5f5 100%)'
+						width:p_complete+'%'
 					}
 				}
 			});
@@ -141,6 +137,7 @@
 				//if unmarked as completed, move to current list
 				item.hidden = false;
 			}
+
 			TodoData.save(vm.data);
 		}
 

@@ -1,0 +1,7 @@
+<h4>Choose a theme:</h4>
+
+<div layout="row" ng-repeat="theme in themes" class="theme_display" ng-class="{'selected':theme.selected}" ng-click="th.applyTheme(theme)">
+  <div flex="50" ng-style="th.getColor('base',theme)" class="base">{{ theme.base }}</div>
+  <div flex="50" ng-style="th.getColor('accent',theme)" class="accent">{{ theme.accent }}</div>
+</div>
+

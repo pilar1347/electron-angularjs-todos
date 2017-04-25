@@ -3,7 +3,7 @@
 </div>
 
 <md-list sv-root sv-part="todos.data.items" sv-on-sort="todos.updateList()">
-	<md-list-item ng-repeat="item in todos.data.items track by $index" class="todo" ng-class="{'completed':item.completed}" sv-element ng-if="todos.configureList(item)" ng-style="item.style">
+	<md-list-item ng-repeat="item in todos.data.items track by $index" class="todo" ng-class="{'completed':item.completed}" sv-element ng-if="todos.configureList(item)">
 
 		<md-button class="md-icon-button" sv-handle>
 			<md-icon class="material-icons">drag_handle</md-icon>
@@ -22,6 +22,12 @@
 			<md-button class="md-icon-button" ng-click="todos.delete($index)">
 				<md-icon class="material-icons">close</md-icon>
 			</md-button>
+		</div>
+
+		<div class="progress_wrap">
+			<div class="progress_bar" ng-style="item.style">
+				<span class="progress_fill" ng-style="app.progress_style"></span>
+			</div>
 		</div>
 		
 	</md-list-item>

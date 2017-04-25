@@ -1,6 +1,6 @@
 <md-toolbar>
 	<div class="md-toolbar-tools">
-		<img class="logo" src="assets/images/Todos_icon.png">
+		<img class="logo" ng-src="assets/images/{{ app.logo }}">
 		<h2>
 			My Todos
 		</h2>
@@ -11,9 +11,6 @@
 			<md-icon class="material-icons">close</md-icon>
 		</md-button>
 
-		<!-- <md-nav-bar aria-label="Nav Bar">
-			<md-nav-item md-nav-href="#Old" name="old">Old</md-nav-item>
-		</md-nav-bar> -->
 		<md-button class="md-accent md-fab md-mini" aria-label="Menu" ng-click="app.showMenu()">
 			<md-icon class="material-icons">menu</md-icon>
 		</md-button>

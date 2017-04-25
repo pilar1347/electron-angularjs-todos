@@ -69,6 +69,9 @@
 
 		function deleteTodo(index){
 			item.details.splice(index,1);
+			if(item.details.length == 0){
+				delete item.details;
+			}
 			TodoData.save(vm.data);
 		}
 

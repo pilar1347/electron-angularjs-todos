@@ -75,7 +75,49 @@ md-list-item.new_todo {
 form {
   display:-webkit-inline-box;
 }
+/* Progress */
+.progress_wrap {
+  position:absolute;
+  bottom:0;
+  left:0;
+  right:0;
+  height:3px;
+}
+.progress_bar {
+  position:absolute;
+  bottom:0;
+  height:100%;
+  transition:width 0.2 ease-in-out;
+}
+.progress_bar > span {
+  position:absolute;
+  width:100%;
+  height:100%;
+}
+
 /* Info Dialog */
 md-dialog .md-toolbar-tools {
   padding-right:16px;
+}
+
+/* Themes */
+.theme_display > div {
+  margin:10px 5px 0 5px;
+  height:40px;
+  padding:5px;
+  text-transform:uppercase;
+}
+.theme_display > div.base {
+  margin-right:0;
+}
+.theme_display > div.accent {
+  margin-left:0;
+}
+.theme_display {
+  cursor:pointer;
+  outline:none;
+  border-bottom:3px solid transparent;
+}
+.theme_display.selected {
+  border-bottom:3px solid black;
 }

@@ -10,7 +10,9 @@
 		var data = {};
 		var factory = {
 			get:get,
-			save:save
+			save:save,
+			setTheme:setTheme,
+			getTheme:getTheme
 		}
 		return factory;
 
@@ -19,7 +21,7 @@
 			if(data.hasOwnProperty('items')){
 				d.resolve(data);
 			} else {
-				storage.getAsync('dawnsTodos').then(function(res){
+				storage.getAsync('myTodos').then(function(res){
 					if(res.items){
 						//already populated, return
 						data = res;
@@ -27,7 +29,7 @@
 					} else {
 						//initialize in storage
 						data = { items:[] };
-						storage.setAsync('dawnsTodos', data).then(function(res){
+						storage.setAsync('myTodos', data).then(function(res){
 							d.resolve(data);
 						});
 					}
@@ -39,8 +41,27 @@
 		function save(res){
 			data = res;
 			//write over
-			storage.set('dawnsTodos', data, function(err){
+			storage.set('myTodos', data, function(err){
 				if(err){ console.error('Todos write error: ' + err); }
+			});
+		}
+
+		function setTheme(theme){
+			storage.set('myTodosTheme', {theme:theme}, function(err){
+				if(err){ console.error('Todo theme write error: ' + err); }
+			});
+		}
+
+		function getTheme(){
+			return storage.getAsync('myTodosTheme').then(function(res){
+				if(!res.theme){
+					//not yet set, set as default indigo
+					setTheme('indigo');
+					return 'indigo';
+				} else {
+					return res;
+				}
+				
 			});
 		}
 
