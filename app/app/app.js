@@ -23,7 +23,7 @@
 				$rootScope.theme = res.theme;
 
 				setProgressBarColor();
-				setLogo();
+				setLogo('white');
 			});
 			
 		}
@@ -37,12 +37,12 @@
 		$scope.$on('themeChange',function(ev,data){
 			vm.theme = data.base;
 			setProgressBarColor();
-			setLogo();
+			setLogo(data.logo);
 		});
 
-		function setLogo(){
+		function setLogo(color){
 			vm.logo = 'Todos_icon.png';
-			if(vm.theme.logo == 'black'){
+			if(color == 'black'){
 				vm.logo = 'Todos_icon_black.png';
 			}
 		}

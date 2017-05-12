@@ -41,10 +41,10 @@ function createWindow () {
     mainWindow = null;
   });
 
-  if(isDev){
+  //if(isDev){
     // Open the DevTools.
     mainWindow.webContents.openDevTools();
-  }
+  //}
 }
 
 // This method will be called when Electron has finished

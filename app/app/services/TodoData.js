@@ -8,6 +8,7 @@
 		var Promise = require('bluebird');
 		var storage = Promise.promisifyAll(require('electron-json-storage'));
 		var data = {};
+		var log = require('electron-log');
 		var factory = {
 			get:get,
 			save:save,
@@ -21,9 +22,9 @@
 			if(data.hasOwnProperty('items')){
 				d.resolve(data);
 			} else {
-				storage.getAsync('myTodos').then(function(res){
+				storage.getAsync('myTodos').then(function(res,err){
 					if(res.items){
-						//already populated, return
+						//already populated, return						
 						data = res;
 						d.resolve(data);
 					} else {
@@ -33,6 +34,13 @@
 							d.resolve(data);
 						});
 					}
+				}).catch(function(e){
+					log.info('Json read error: ' + e);
+					//reset data and throw error
+					data = { items:[] };
+					storage.setAsync('myTodos', data).then(function(res){
+						d.resolve(data);
+					});
 				});
 			}
 			return d.promise;
@@ -41,14 +49,16 @@
 		function save(res){
 			data = res;
 			//write over
+			//something is happening here where it adds an extra } sometimes, but can't recreate
+			console.log(res)
 			storage.set('myTodos', data, function(err){
-				if(err){ console.error('Todos write error: ' + err); }
+				if(err){ log.info('Todos write error: ' + err); }
 			});
 		}
 
 		function setTheme(theme){
 			storage.set('myTodosTheme', {theme:theme}, function(err){
-				if(err){ console.error('Todo theme write error: ' + err); }
+				if(err){ log.info('Todo theme write error: ' + err); }
 			});
 		}
 
