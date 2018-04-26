@@ -49,8 +49,6 @@
 		function save(res){
 			data = res;
 			//write over
-			//something is happening here where it adds an extra } sometimes, but can't recreate
-			console.log(res)
 			storage.set('myTodos', data, function(err){
 				if(err){ log.info('Todos write error: ' + err); }
 			});

@@ -20,13 +20,6 @@
 
 		activate();
 
-		//TODOs for todos
-		//Attach folder locations to todos?
-		//Add due date to Todos
-
-		//If list is long, is it annoying to have add new at bottom?
-		//Should list be tall and skinny instead of size it is now?
-
 		function activate(){
 			TodoData.get().then(function(res){
 				vm.data = res;
